@@ -1,22 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="sv">
-	<head>
-		<title>Netz family site</title>
-		<%- include('partials/head-conts') %>
-	</head>
+  <head>
+    <title>Netz family site</title>
+    <%- include('partials/head-conts') %>
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
 
-	<body>
-		<%- include('partials/navbar') %>
-    		<main class="container">
-			<h1>Sparade skällningar</h1>
-				<div class="row">
-					<div class="col-1 text-center">ID</div>
-					<div class="col-2 text-center">Hund</div>
-					<div class="col-5">Notering</div>
-					<div class="col-2">Tidpunkt</div>
-					<div class="col-2 text-center">Åtgärd</div>
-        			</div>
+    <div class="container-fluid">
+      <main class="bg-light mb-5">
+        <h1>Sparade skällningar</h1>
+	<div class="container-fluid mb-3">
+        <div class="row">
+          <div class="col-1 text-center">ID</div>
+            <div class="col-2 text-center">Hund</div>
+            <div class="col-5">Notering</div>
+	    <div class="col-2">Tidpunkt</div>
+            <div class="col-2 text-center">Åtgärd</div>
+          </div>
         	<%
 		if(userData.length!=0){
 			var i=1;
@@ -40,10 +41,11 @@
 				<div class="row">
 					<div class="col-12 text-center">No data found.</div>
         			</div>
-        	<% } %>
-		</main>
-		
-		<%- include('partials/footer') %>
-	</body>
+      		<% } %>
+        </div>
+      </main>
+    </div>
+    <%- include('partials/footer') %>
+  </body>
 </html>
 
