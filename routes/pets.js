@@ -4,14 +4,14 @@ const db = require('../mydb');
 
 /* GET barks listing. */
 router.get('/', function(req, res, next) {
-  res.render('barks', {
+  res.render('bark', {
     data: {},
     error: {}
   });
 });
 
 // Save a bark. fetch form-data and save to db-table.
-router.post('/', (req, res, next) => {
+router.post('/bark', (req, res, next) => {
   var SQL="INSERT INTO barks (barkee, bark_note, barked_at) VALUES (?, ?, now() )";
   var params = [ req.body.barkee, req.body.barkNote ];
   db.query(SQL, params, (err, data, fields) => {

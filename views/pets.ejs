@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<title>Netz App - Registrera skall</title>
+		<%- include('partials/head-conts') %>
+	</head>
+
+	<body>
+		<%- include('partials/navbar') %>
+		<main class="container">
+			<h1>Skällningar</h1>
+
+			<div class="row">
+				<div class="col-md-6">
+
+					<h3>Registrera en skällning</h3>
+
+					<form method="post" action="/pets/bark" class="mb-3">
+  					<div class="form-group mb-3">
+    					<label for="barkee">Hund som skällde</label>
+    					<input type="text" class="form-control" id="barkee" name="barkee" placeholder="Ange vem det var som skällde">
+  					</div>
+  					<div class="form-group mb-3">
+    					<label for="barkNote">Information</label>
+    					<input type="text" class="form-control" id="barkNote" name="barkNote" placeholder="Mer utförlig info kring händelsen">
+ 			 			</div>
+  					<button type="submit" class="btn btn-primary">Spara</button>
+					</form>
+
+				</div>			
+			</div>	
+
+			<div class="row">
+				<h3>Lista sparade</h3>
+
+				<div class="col-md-6">
+					<a href="/pets/bark-list">Visa senaste skällningar</a>
+				</div>
+			</div>
+
+		</main>
+
+		<%- include('partials/footer') %>
+	</body>
+</html>
+
