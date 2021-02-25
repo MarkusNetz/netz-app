@@ -2,6 +2,18 @@ const express = require('express');
 const router = express.Router();
 const db = require('../mydb');
 
+
+/* GET barks listing. */
+router.get('/', function(req, res, next) {
+  res.render('pets', {
+    data: {
+      msg: 'Djur-sidan.'
+    },
+      error: {}
+  })
+});
+
+
 /* GET barks listing. */
 router.get('/bark', function(req, res, next) {
   res.render('bark', {

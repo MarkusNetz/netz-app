@@ -6,46 +6,51 @@
   </head>
   <body>
     <%- include('partials/navbar') %>
+    <div class="container">
 
-    <div class="container-fluid">
-      <main class="bg-light mb-5">
+      <main class="row">
         <h1>Sparade skällningar</h1>
-	<div class="container-fluid mb-3">
-        <div class="row">
-          <div class="col-1 text-center">ID</div>
-            <div class="col-2 text-center">Hund</div>
-            <div class="col-5">Notering</div>
-	    <div class="col-2">Tidpunkt</div>
-            <div class="col-2 text-center">Åtgärd</div>
-          </div>
+	
+	<table class="table table-sm table-striped table-borderless">
+		<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Hund</th>
+				<th scope="col">Info</th>
+				<th scope="col">När</th>
+				<th scope="col">Åtgärd</th>
+			</tr>
+		</thead>
+		<tbody>
         	<%
 		if(userData.length!=0){
 			var i=1;
 			userData.forEach(function(data){
 		%>
-				<div class="row">
-					<div class="col-1 text-center"><%=data.id %></div>
-					<div class="col-2 text-center"><%=data.barkee %></div>
-					<div class="col-5"><%=data.bark_note %>	</div>
-					<div class="col-2"><%=data.barked_at %>	</div>
-					<div class="col-2 text-center">
+				<tr>
+					<td scope="row"><%=data.id %></td>
+					<td><%=data.barkee %></td>
+					<td><%=data.bark_note %></td>
+					<td><%=data.barked_at %></td>
+					<td>
           					<a href="/barks/bark-delete/<%=data.id%>"><i class="bi bi-trash"></i></a>
-        				</div>
-        			</div>
+        				</td>
+        			</tr>
 		<%
 				i++;
 			}) %>
         	<%
 		} else{
 		%>
-				<div class="row">
-					<div class="col-12 text-center">No data found.</div>
-        			</div>
-      		<% } %>
-        </div>
-      </main>
-    </div>
+				<tr>
+					<td scope="row">No data found</td>
+				</tr>
+		<% } %>
+		</tbody>
+	</table>
+    
     <%- include('partials/footer') %>
+  
   </body>
 </html>
 
