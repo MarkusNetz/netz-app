@@ -9,14 +9,14 @@ router.get('/', function(req, res, next) {
 	sql = "select name, case when sex = 'f' THEN 'hona' WHEN sex = 'm' THEN 'hane' end as sex, date_birth, pet_img from pets where date_death = '9999-12-31' ";
 	db.query(sql, function(err, data) {
 		if (err) throw err;
-		res.render('pets', {petData: data})
+		res.render('pets', {title: 'Netz-appen - Djursidan',petData: data})
 	})
 });
 
 
 /* GET barks listing. */
 router.get('/bark', function(req, res, next) {
-  res.render('bark', {
+  res.render('bark', { title: 'Netz-appen - Skällning',
     data: {},
     error: {}
   });
@@ -40,7 +40,7 @@ router.get('/bark-list', function(req, res, next) {
   var sql='SELECT id, barkee, bark_note, barked_at FROM barks';
   db.query(sql, function (err, data, fields) {
     if (err) throw err;
-    res.render('bark-list', {userData: data});
+    res.render('bark-list', {title: 'Netz-Appen - Skällistan', userData: data});
   });
 });
 
