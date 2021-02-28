@@ -6,8 +6,8 @@ const db = require('../mydb');
 /* GET barks listing. */
 router.get('/', function(req, res, next) {
 
-	sql = "select fullname, case when sex = 'f' THEN 'hona' WHEN sex = 'm' THEN 'hane' end as sex, date_birth from family where family_type_id = (select id from family_types where type = 'pets') and date_death >= '9999-12-31' ";
-	db.query(sql, function(err, data, fields) {
+	sql = "select name, case when sex = 'f' THEN 'hona' WHEN sex = 'm' THEN 'hane' end as sex, date_birth, pet_img from pets where date_death = '9999-12-31' ";
+	db.query(sql, function(err, data) {
 		if (err) throw err;
 		res.render('pets', {petData: data})
 	})
