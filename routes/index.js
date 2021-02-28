@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {titel: 'Netz-Appen start!'});
+  res.render('index', {title: 'Netz-Appen start!'});
 });
 
 module.exports = router;
