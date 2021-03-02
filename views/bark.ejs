@@ -8,31 +8,37 @@
 	<body>
 		<%- include('partials/navbar') %>
     
-		<main class="container">
-			<h1>Spara en skällning</h1>
-
-			<div class="row">
-				<div class="col-md-6">
-
-					<h3>Registrera en skällning</h3>
-
-					<form method="post" action="/pets/bark" class="mb-3">
-  						<div class="form-group mb-3">
+		<div class="container p-my-6">
+			<a href='/'>Start</a> &gt; <a href='/pets'>Djur</a> &gt; <span class='underline'>Visa skäll</span>
+			
+			<h3>Registrera en skällning</h3>
+			<form method="post" action="/pets/bark" class="mb-3">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="form-group mb-3">
     							<label for="barkee">Hund som skällde</label>
-    							<input type="text" class="form-control" id="barkee" name="barkee" placeholder="Ange vem det var som skällde">
+    							<input list="barkees" class="form-control" id="barkee" name="barkee" required placeholder="Ange vem det var som skällde">
+							<datalist id="barkees">
+								<option value="Ludde">
+								<option value="Higgins">
+								<option value="Castor">
+							</datalist>
   						</div>
-  						<div class="form-group mb-3">
+  					</div>
+  					<div class="col-lg-6">
+						<div class="form-group mb-3">
     							<label for="barkNote">Information</label>
     							<input type="text" class="form-control" id="barkNote" name="barkNote" placeholder="Mer utförlig info kring händelsen">
- 			 			</div>
-  						<button type="submit" class="btn btn-primary">Spara</button>
-  						<a href="/pets" class="btn btn-secondary">Avbryt</a>
-					</form>
-
-				</div>			
-			</div>	
-
-		</main>
+	 			 		</div>
+	 			 	</div>
+	 			</div>
+				<div class="row">
+					<div class="container">
+  					<button type="submit" class="btn btn-primary">Spara</button>
+  					<a href="/pets" class="btn btn-secondary">Avbryt</a>
+	 			 </div>
+			</form>
+		</div>
 		<%- include('partials/footer') %>
 	</body>
 </html>

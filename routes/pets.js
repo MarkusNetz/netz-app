@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 	sql = "select name, case when sex = 'f' THEN 'hona' WHEN sex = 'm' THEN 'hane' end as sex, date_birth, pet_img from pets where date_death = '9999-12-31' ";
 	db.query(sql, function(err, data) {
 		if (err) throw err;
-		res.render('pets', {title: 'Netz-appen - Djursidan',petData: data})
+		res.render('pets', {title: 'Netz-appen - Djursidan', petData: data})
 	})
 });
 
@@ -36,6 +36,18 @@ router.post('/bark', (req, res, next) => {
 
 // receive get for list barks. Fetch from db and show.
 router.get('/bark-list', function(req, res, next) {
+	if (req.query.action == "delete"){
+		if (req.query.type == "bark" ){
+			if (req.query.barkId){
+				var delSql="DELETE FROM barks WHERE id = ?";
+				db.query(delSql, req.query.barkId, function(err, data){
+					if (err) throw err
+					console.log('Skällning raderad.');
+				});
+			}
+		}
+	}
+	
   console.log('list requested');
   var sql='SELECT id, barkee, bark_note, barked_at FROM barks';
   db.query(sql, function (err, data, fields) {
