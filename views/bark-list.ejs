@@ -5,44 +5,52 @@
 	</head>
 	<body>
  		<%- include('partials/navbar') %>
-	<div class="container">
-		<a href='/'>Start</a> &gt; <a href='/pets'>Djur</a> &gt; <span class='underline'>Visa skäll</span>
-		<h1>Sparade skällningar</h1>
-		<table class="table table-sm table-striped table-borderless">
-			<thead>
-				<tr>
-					<th scope="col">Hund</th>
-					<th scope="col">Info</th>
-					<th scope="col">När</th>
-					<th scope="col">Ta bort</th>
-				</tr>
-			</thead>
-			<tbody>
-        	<%
-		if(userData.length!=0){
-			var i=1;
-			userData.forEach(function(data){
-		%>
-				<tr>
-					<td scope="row>"><%=data.barkee %></td>
-					<td><%=data.bark_note %></td>
-					<td><%=data.barked_at %></td>
-					<td>
-          					<a href="/pets/bark-list?action=delete&type=bark&barkId=<%=data.id%>"><i class="bi bi-trash"></i></a>
-        				</td>
-        			</tr>
-		<%
-				i++;
-			}) %>
-        	<%
-		} else{
-		%>
-				<tr>
-					<td scope="row">No data found</td>
-				</tr>
-		<% } %>
-			</tbody>
-		</table>
+		<div class="container">
+			<a href='/'>Start</a> &gt; <a href='/pets'>Djur</a> &gt; <span class='underline'>Visa skäll</span>
+		</div>
+
+		<div class="container">
+		
+			<h1>Sparade skällningar</h1>
+			<div class="table-responsive-md">
+				<table class="table table-lg">
+					<thead>
+						<tr>
+							<th scope="col">Hund</th>
+							<th scope="col">Info</th>
+							<th scope="col">När</th>
+							<th scope="col">Ta bort</th>
+						</tr>
+					</thead>
+					<tbody>
+					<%
+					if(userData.length!=0){
+						var i=1;
+						userData.forEach(function(data){
+					%>
+						<tr>
+							<td scope="row>"><%=data.barkee %></td>
+							<td><%=data.bark_note %></td>
+							<td><%=data.barked_at %></td>
+							<td>
+	          						<a href="/pets/bark-list?action=delete&type=bark&barkId=<%=data.id%>"><i class="bi bi-trash"></i></a>
+	        					</td>
+	        				</tr>
+					<%
+						i++;
+					}) %>
+	        		<%
+				} else{
+				%>
+						<tr>
+							<td scope="row">No data found</td>
+						</tr>
+				<% } %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
 		<%- include('partials/footer') %>
 	</body>
 </html>

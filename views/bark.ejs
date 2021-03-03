@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="sv">
 	<head>
@@ -7,9 +6,13 @@
 
 	<body>
 		<%- include('partials/navbar') %>
-    
+   		
 		<div class="container p-my-6">
-			<a href='/'>Start</a> &gt; <a href='/pets'>Djur</a> &gt; <span class='underline'>Visa skäll</span>
+
+			<span>Start &gt; Djur &gt; Spara skällning</span>
+		</div> 
+
+		<div class="container p-my-6">
 			
 			<h3>Registrera en skällning</h3>
 			<form method="post" action="/pets/bark" class="mb-3">

@@ -7,59 +7,39 @@
 
 	<body>
 		<%- include('partials/navbar') %>
+
+		<div class="container">
+			<span>Start &gt; Fordon</span>
+		</div>
+	
 		<div class="container">
 			<div class="row">
 				<h1>Fordon</h1>
 			</div>
 
-			<div class="row">
-				<div class="row-md-12">
-					<table class="table table-sm table-striped table-borderless">
-						<thead>
-							<tr>
-								<th scope="col">#</th>
-								<th scope="col">Reg.nr</th>
-								<th scope="col">Märke</th>
-								<th scope="col">Modell</th>
-								<th scope="col">Färg</th>
-								<th scope="col">Köpt</th>
-								<th scope="col">Såld</th>
-							</tr>
-						</thead>
-						<tbody>
-        					<%
-						if(vehicleData.length!=0){
-							var i=1;
-							vehicleData.forEach(function(data){
-						%>
-							<tr>
-								<td scope="row"><%=i %></td>
-								<td><%=data.reg_no %></td>
-								<td><%=data.make %></td>
-								<td><%=data.model %></td>
-								<td><%=data.color %></td>
-								<td><%=data.date_purchased %></td>
-								<td><%=data.date_sold %></td>
-        						</tr>
-						<%
-							i++;
-						})
-						%>
-        					<%
-						} else{
-						%>
-							<tr>
-								<td scope="row">No data found</td>
-							</tr>
-						<% } %>
-						</tbody>
-					</table>
-				</div>
+		</div>
+
+		<div class="container">
+			<div class="card">
+  				<h5 class="card-header">Ulrikas examensbil! :)</h5>
+  				<div class="card-body">
+    					<h5 class="card-title">Brum brum brum...</h5>
+    					<p class="card-text">
+						<%=wishlistCar %>
+					</p>
+  				</div>
 			</div>
 		</div>
 
 		<div class="container">
-			<%=wishlistCar %>
+			<div class="card">
+  				<h5 class="card-header">Fordonslista</h5>
+  				<div class="card-body">
+    					<h5 class="card-title">Brum brum brum...</h5>
+    					<p class="card-text">Här nedan kan man välja att gå till att se alla fordon eller att lägga till nya.</p>
+    					<a href="/vehicles/list" class="btn btn-primary">Visa komplett fordonslista</a>
+  				</div>
+			</div>
 		</div>
 
 		<%- include('partials/footer') %>

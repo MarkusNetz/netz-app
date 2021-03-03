@@ -12,7 +12,7 @@
 			<div class="container">
 
 				<div class="row">
-						<h2>Våra pälsiga medlemmar</h2>
+					<h2>Våra pälsiga medlemmar</h2>
 					<div class="col-md-6">
 		<%
 		if(petData.length!=0){
@@ -23,7 +23,7 @@
 						<div class="card mb-3" style="max-width: 540px;">
  							<div class="row g-0">
 								<div class="col-md-4">
-									<img style='width:100%' src="<%=data.pet_img %>" alt="...">
+									<img class="img-fluid" src="<%=data.pet_img %>" alt="...">
 								</div>
 								<div class="col-md-8">
 									<div class="card-body">
@@ -44,7 +44,7 @@
 					</div>
 
 					<div class="col-md-6">
-						<img style='width: 100%' src="/images/rottweiler.jpg">
+						<img class="img-fluid" src="/images/rottweiler.jpg">
 					</div>
 				</div>
 			</div>
@@ -54,7 +54,7 @@
   					<h5 class="card-header">Skällningar</h5>
   					<div class="card-body">
     						<h5 class="card-title">Hundar kan ibland låta lite...</h5>
-    						<p class="card-text">Här nedan kan man välja att gå till att se alla skällningar eller att lägga till händelser.</p>
+    						<p class="card-text">Här nedan kan man välja att gå till att se alla skällningar eller att lägga till ny skällning.</p>
     						<a href="/pets/bark" class="btn btn-primary">Registrera skall</a>
     						<a href="/pets/bark-list" class="btn btn-secondary">Visa skällningar</a>
   					</div>

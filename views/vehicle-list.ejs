@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<%- include('partials/head-conts') %>
+	</head>
+
+	<body>
+		<%- include('partials/navbar') %>
+
+		<div class="container">
+			<span>Start &gt; Fordon &gt; Fordonslista</span>
+		</div>
+	
+		<div class="container">
+			<div class="row">
+				<h1>Fordon</h1>
+			</div>
+
+			<div class="row">
+				<div class="row-md-12">
+					<div class="table-responsive-sm">
+						<table class="table table-lg">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Reg.nr</th>
+									<th scope="col">Märke</th>
+									<th scope="col">Modell</th>
+									<th scope="col">Färg</th>
+									<th scope="col">Köpt</th>
+									<th scope="col">Såld</th>
+								</tr>
+							</thead>
+							<tbody>
+        						<%
+							if(vehicles.length!=0){
+								var i=1;
+								vehicles.forEach(function(data){
+							%>
+								<tr>
+									<td scope="row"><%=i %></td>
+									<td><%=data.reg_no %></td>
+									<td><%=data.make %></td>
+									<td><%=data.model %></td>
+									<td><%=data.color %></td>
+									<td><%=data.date_purchased %></td>
+									<td><%=data.date_sold %></td>
+	        						</tr>
+							<%
+								i++;
+							})
+							%>
+	        					<%
+							} else{
+							%>
+								<tr>
+									<td scope="row">No data found</td>
+								</tr>
+							<% } %>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%- include('partials/footer') %>
+
+	</body>
+</html>
+
