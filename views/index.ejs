@@ -12,14 +12,43 @@
 			</div>
 
 			<div class="card">
-  				<div class="card-header">
-    					Quote
-  				</div>
-  				<div class="card-body">
-    					<blockquote class="blockquote mb-0">
-      						<p>Världens bästa familj på hela vida webben..</p>
-      						<footer class="blockquote-footer">Markus från <cite title="säker källa">säker källa</cite></footer>
-					</blockquote>
+				<div class="card-header">
+					Att-göra lista
+				</div>
+
+				<div class="card-body">
+					<form class="form-floating my-6" method="post" action="/">
+						<div class="row">
+							<div class="col form-floating mb-3">
+								<input type="text" class="form-control" id="floatingInputTodo" placeholder="Något som ska göras">
+								<label for="floatingInputTodo" class="ms-2">Att göra</label>
+							</div>
+							<div class="col">
+  								<button type="submit" class="btn btn-primary">Lägg till</button>
+							</div>
+						</div>
+					</form>
+
+					<%
+					if(todos.length!=0){
+						var i=1;
+                                                todos.forEach(function(data){
+                                        %>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="todo_<%= data.id %>" name="todo_<%= data.id %>" <%= data.performed %>>
+								<label class="form-check-label" for="todo_<%= data.id %>">
+									<%=data.todo %>
+								</label>
+							</div>
+						<%
+                                        		i++;
+                                        	})
+                                                %>
+                                                <%
+                                        } else{
+                                       %>
+				       		<p>Hurra! Inget att göra! :-)</p>
+                                     <% } %>
 				</div>
 			</div>
 

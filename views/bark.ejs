@@ -17,7 +17,7 @@
 			<h3>Registrera en skällning</h3>
 			<form method="post" action="/pets/bark" class="mb-3">
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-4">
 						<div class="form-group mb-3">
     							<label for="barkee">Hund som skällde</label>
     							<input list="barkees" class="form-control" id="barkee" name="barkee" required placeholder="Ange vem det var som skällde">
@@ -28,7 +28,19 @@
 							</datalist>
   						</div>
   					</div>
-  					<div class="col-lg-6">
+  					<div class="col-lg-2">
+						<div class="form-group mb-3">
+    							<label for="barkTime">Tid</label>
+    							<input type="time" class="form-control" id="barkTime" name="barkTime">
+	 			 		</div>
+	 			 	</div>
+  					<div class="col-lg-2">
+						<div class="form-group mb-3">
+    							<label for="barkDate">Dag</label>
+    							<input type="date" class="form-control" id="barkDate" name="barkDate">
+	 			 		</div>
+	 			 	</div>
+  					<div class="col-lg-4">
 						<div class="form-group mb-3">
     							<label for="barkNote">Information</label>
     							<input type="text" class="form-control" id="barkNote" name="barkNote" placeholder="Mer utförlig info kring händelsen">

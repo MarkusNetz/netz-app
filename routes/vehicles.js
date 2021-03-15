@@ -25,8 +25,15 @@ router.get('/list', getVehicles, renderVehiclesListPage);
 
 
 function getWishList(req,res,next){
-	
-	wishCar = {
+	getWishSql = "SELECT list FROM wishlist"
+	db.query( getWishSql, function( err, rows, fields) {
+		if (rows.length !== 0 ){
+			if (err) throw err;
+			req.wishes = rows;
+			return next();
+		}
+	})
+	/*wishCar = {
 		"examensBil": {
         		"title": "Ulrikas krav på ny bil.",
 			"önskelista": {
@@ -37,11 +44,11 @@ function getWishList(req,res,next){
 		}
 	}
 	req.wishes = wishCar
-	next();
+	next();*/
 }
 
 function renderVehiclesPage(req, res) {
-	res.render('vehicles', {title: 'Netz-Appen - Fordon', wishlistCar: JSON.stringify(req.wishes, null, 4) })
+	res.render('vehicles', {title: 'Netz-Appen - Fordon', wishlistCar: JSON.stringify(req.wishes) })
 }
 
 router.get('/', getWishList, renderVehiclesPage);
