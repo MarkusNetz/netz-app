@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 function getVehicles(req,res,next) {
-	getVehiclesSql = "SELECT v.reg_no,vma.make,vmo.model, v.color, v.date_purchased, if(date_sold = '9999-12-31', '', date_sold) date_sold from vehicles v INNER JOIN vehicle_models vmo ON vmo.id = v.vehicle_model_id INNER JOIN vehicle_makes vma ON vmo.vehicle_make_id = vma.id"
+	getVehiclesSql = "SELECT v.reg_no,vma.make,vmo.model, v.color, v.date_purchased, if(date_sold = '9999-12-31', '', date_sold) date_sold from vehicles v INNER JOIN vehicle_models vmo ON vmo.id = v.vehicle_model_id INNER JOIN vehicle_makes vma ON vmo.vehicle_make_id = vma.id order by date_purchased"
 	db.query(getVehiclesSql, function( err, rows, fields) {
 		if( rows.length !== 0 ){
 			if (err) throw err;
@@ -32,19 +32,12 @@ function getWishList(req,res,next){
 			req.wishes = rows;
 			return next();
 		}
-	})
-	/*wishCar = {
-		"examensBil": {
-        		"title": "Ulrikas krav på ny bil.",
-			"önskelista": {
-				"dragkrok": "Ja",
-				"drivmedel": "Bensin",
-				"växellåda": "Automat"
-			}
+		else
+		{
+			req.wishes = "nothing here"
+			return next();
 		}
-	}
-	req.wishes = wishCar
-	next();*/
+	})
 }
 
 function renderVehiclesPage(req, res) {
