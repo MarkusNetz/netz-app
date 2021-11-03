@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<%- include('partials/head-conts') %>
+	</head>
+
+	<body>
+		<%- include('partials/navbar') %>
+
+		.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
+
+                        C U R R I C U L U M    V I T A E
+
+              Per von Zweigbergk     Telefon:     +46 70 816 57 19
+              Harplingegränd 10      E-post:      pvz@pvz.pp.se
+              125 73  ÄLVSJÖ         Ålder:       0x20 (32) år
+
+   ( (  Kreativ och fantasifull systemadministratör med djup, bred och
+        lång erfarenhet, med konstant driv att förbättra och lära nytt.  ) )
+
+.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
+
+  PERSONLIGHET     Rättfram och rak, men alltid med slutanvändaren i fokus.
+                   Passion för intressanta men framförallt väl fungerande
+                   tekniska lösningar.
+
+.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
+
+  ERFARENHET OCH   Nätverk:         Ethernet hemma sedan 1996.
+  FÄRDIGHETER                       I arbetslivet sedan 2002.
+                                    CCNA-certifierad, men kan mycket mer.
+
+                   DBMS:			MySQL, ORACLE, MS SQL i arbetslivet sedan 2017.
+									Primärt MySQL - MySQL InnoDB Cluster för HA.
+									En del OrientDB, Neo4J (grafdatabaser)
+
+                   Linux / RHEL:    I arbetslivet sedan 2017.
+                                    Väl hemma med Debian/Ubuntu Linux.
+                                    Även erfarenhet med FreeBSD och OpenBSD.
+
+                   Windows Server:  I arbetslivet under 2017 på IT-assistans.
+									Använder aktivt sedan slutet på 2017 som klient på Polisen.
+
+                   Virtualisering:  VMware vSphere (ESXi, vCenter) sedan 2009.
+                                    Oracle PCA.
+
+                   Kodhantering:	GIT - versionshantering i bland annat Bitbucket
+
+                   Programmering:   Python, PHP.
+
+				   Skriptning:		Bash, Perl.
+
+                   Backup:          Oracle RMAN. Netbackup.
+
+				   Dokumentation:	Aktivt och noggrannt arbetat med att dokumentera i Confluence sedan 2017.
+
+				   Bug-tracking:	Jira Software sedan 2017.
+
+                   Hårdvara:        Grundläggande men långa kunskaper inom
+                                    installation och felsökning av dator-
+                                    hårdvara.
+
+                   Lär mig just nu: puppet, ganeti, Azure, programmering av
+                                    moduler till OPNsense.
+
+.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
+
+  UPPDRAG          DATABASADMINISTRATÖR / SUPPORT
+                   Polismyndighetens IT-avdelningen 2017 - pågående
+
+
+.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
+
+  UTBILDNING       Jag gick i ...
+
+.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
+
+  ÖVRIG            
+  RELEVANT         
+  ERFARENHET       
+                   Körkort med B-behörighet.
+                   Körkort med D-behörighet.
+		   Yrkeskompetensbevis (YKB)
+		   Digitalt förarkort.
+
+.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
+
+  MÄNSKLIGA        Svenska, modersmål, väldigt goda kunskaper i skrift och tal.
+  SPRÅK            Engelska, väldigt goda kunskaper i skrift och tal.
+
+.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
+
+  REFERENSER       Lämnas på begäran.
+
+.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
+
+		<div class="container">
+			<span>Start &gt; Fordon &gt; Fordonslista</span>
+		</div>
+	
+		<div class="container">
+			<div class="row">
+				<h1>Fordon</h1>
+			</div>
+
+			<div class="row">
+				<div class="row-md-12">
+					<div class="table-responsive-sm">
+						<table class="table table-lg">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Reg.nr</th>
+									<th scope="col">Märke</th>
+									<th scope="col">Modell</th>
+									<th scope="col">Färg</th>
+									<th scope="col">Köpt</th>
+									<th scope="col">Såld</th>
+								</tr>
+							</thead>
+							<tbody>
+        						<%
+							if(vehicles.length!=0){
+								var i=1;
+								vehicles.forEach(function(data){
+							%>
+								<tr>
+									<td scope="row"><%=i %></td>
+									<td><%=data.reg_no %></td>
+									<td><%=data.make %></td>
+									<td><%=data.model %></td>
+									<td><%=data.color %></td>
+									<td><%=data.date_purchased %></td>
+									<td><%=data.date_sold %></td>
+	        						</tr>
+							<%
+								i++;
+							})
+							%>
+	        					<%
+							} else{
+							%>
+								<tr>
+									<td scope="row">No data found</td>
+								</tr>
+							<% } %>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<%- include('partials/footer') %>
+
+	</body>
+</html>
+
