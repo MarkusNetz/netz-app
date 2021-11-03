@@ -1,23 +1,80 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <style>
+      :root {
+        /* in-content-page-{color, background} for dark theme. */
+        background: rgb(28,27,34);
+        color: rgb(251,251,254);
+      }
 
-<!DOCTYPE html>
-<html lang="sv">
-	<head>
-		<%- include('partials/head-conts') %>
-	</head>
+      :root {
+        color: rgb(251,251,254);
+      }
+      
+      /* This Source Code Form is subject to the terms of the Mozilla Public
+      * License, v. 2.0. If a copy of the MPL was not distributed with this
+      * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-	<body>
-		<%- include('partials/navbar') %>
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        -moz-control-character-visibility: visible;
+      }
 
-		.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
+      .nowrap pre {
+        white-space: pre;
+      }
+
+      /* Make text go with the rules of dir=auto, but allow it to be overriden if 'Switch Text Direction' is triggered */
+      html:not([dir]) pre { /* Not a UA sheet, so doesn't use :-moz-has-dir-attr */
+        unicode-bidi: plaintext;
+      }
+
+      @-moz-document unobservable-document() {
+        @media (prefers-color-scheme: dark) {
+          :root {
+            /* in-content-page-{color, background} for dark theme. */
+            background: rgb(28,27,34);
+            color: rgb(251,251,254);
+          }
+        }
+      }
+
+      /* NOTE(emilio): For some reason some pages, mainly bing.com, load a bunch of
+      * scripts in zero-size <object> elements, see bug 1548449.
+      *
+      * Line-breaking such documents is useless and pretty expensive, so only render
+      * them if there's a viewport. Sigh.
+      */
+      @media (width: 0) or (height: 0) {
+        :root {
+          display: none;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <pre>
+  __  __               _                  _   _        _        
+ |  \/  |             | |                | \ | |      | |       
+ | \  / |  __ _  _ __ | | __ _   _  ___  |  \| |  ___ | |_  ____
+ | |\/| | / _` || '__|| |/ /| | | |/ __| | . ` | / _ \| __||_  /
+ | |  | || (_| || |   |   < | |_| |\__ \ | |\  ||  __/| |_  / / 
+ |_|  |_| \__,_||_|   |_|\_\ \__,_||___/ |_| \_| \___| \__|/___|
+
+
+.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
 
                         C U R R I C U L U M    V I T A E
 
-              Per von Zweigbergk     Telefon:     +46 70 816 57 19
-              Harplingegränd 10      E-post:      pvz@pvz.pp.se
-              125 73  ÄLVSJÖ         Ålder:       0x20 (32) år
+              Markus Netz            Telefon:     +46 73 362 90 96
+              Salsavägen 8 A         E-post:      markus.netz.89@gmail.com
+              149 43  NYNÄSHAMN      Ålder:       0x20 (32) år
 
-   ( (  Kreativ och fantasifull systemadministratör med djup, bred och
-        lång erfarenhet, med konstant driv att förbättra och lära nytt.  ) )
+   ( (  Engagerad, hängiven sysadmin/dba med driv 
+        driv att alltid förbättra och lära och tänka nytt.  ) )
 
 .,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
 
@@ -27,62 +84,104 @@
 
 .,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
 
-  ERFARENHET OCH   Nätverk:         Ethernet hemma sedan 1996.
-  FÄRDIGHETER                       I arbetslivet sedan 2002.
-                                    CCNA-certifierad, men kan mycket mer.
-
-                   DBMS:			MySQL, ORACLE, MS SQL i arbetslivet sedan 2017.
-									Primärt MySQL - MySQL InnoDB Cluster för HA.
-									En del OrientDB, Neo4J (grafdatabaser)
+  ERFARENHET OCH   DBMS:            MySQL, ORACLE, MS SQL sedan 2017.
+  FÄRDIGHETER                       Primärt fokusområde - MySQL, OrientDB.
+                                    En del Elasticsearch, Neo4J.
 
                    Linux / RHEL:    I arbetslivet sedan 2017.
                                     Väl hemma med Debian/Ubuntu Linux.
-                                    Även erfarenhet med FreeBSD och OpenBSD.
 
                    Windows Server:  I arbetslivet under 2017 på IT-assistans.
-									Använder aktivt sedan slutet på 2017 som klient på Polisen.
+		                    Använder aktivt sedan slutet på 2017 som
+				    klient på Polisen.
 
-                   Virtualisering:  VMware vSphere (ESXi, vCenter) sedan 2009.
+                   Virtualisering:  VMware vSphere (vCenter) sedan 2017.
                                     Oracle PCA.
 
-                   Kodhantering:	GIT - versionshantering i bland annat Bitbucket
+                   Kodhantering:    GIT - versionshantering i bl.a Bitbucket.
 
                    Programmering:   Python, PHP.
-
-				   Skriptning:		Bash, Perl.
+				   
+                   Skriptning:      Bash, Perl.
 
                    Backup:          Oracle RMAN. Netbackup.
-
-				   Dokumentation:	Aktivt och noggrannt arbetat med att dokumentera i Confluence sedan 2017.
-
-				   Bug-tracking:	Jira Software sedan 2017.
+				   
+                   Dokumentation:   Aktivt och noggrannt arbetat med att
+		                    dokumentera i Confluence sedan 2017.
+				   
+                   Bug-tracking:    Jira Software sedan 2017.
 
                    Hårdvara:        Grundläggande men långa kunskaper inom
                                     installation och felsökning av dator-
                                     hårdvara.
 
-                   Lär mig just nu: puppet, ganeti, Azure, programmering av
-                                    moduler till OPNsense.
-
+                   Lär mig just nu: Node (js, express), python.
+                                                                                
 .,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
 
-  UPPDRAG          DATABASADMINISTRATÖR / SUPPORT
+  UPPDRAG          DATABASADMINISTRATÖR / HANDLÄGGARE
                    Polismyndighetens IT-avdelningen 2017 - pågående
 
+                   Fokus på drift och upprättande av infrastruktur runt
+                   databasservrar, primärvalet är MySQL.
+		   Samt drift av Oracle, MS SQL, Elasticsearch, OrientDB.
+
+		   Planering och beställning av fysisk hårdvara för
+		   livscykelhantering och efter prestandafelsökningar.
+
+		   Tätt samarbete med Linux-servergruppen.
+		   Även inneburit beredskapsansvar.
+				   
+                   Ett urval av det jag gjort här:
+
+		   Ansvarat för att ta in OrientDB som driftobjekt i
+		   Databasgruppens portfolio.
+
+                   Planerat, prioriterat och utfört övergång från drift i
+		   fysiska burkar till anpassade virtuella maskiner för mysql.
+
+                   Implementering av produkten MySQL Enterprise Audit med
+		   den grupp som ansvarar för logghantering.
+		   Innefattat testande, uppsättande dokumenterande
+		   och installation på samtliga system.
+
+                   Infört MySQL InnoDB Cluster som standard för
+		   applikationers databasmiljöer för att uppnå HA och enklare
+		   kunna managera servrarna.
+				   
+                   Tagit ansvar för säkerhetsuppdateringar både på OS-nivå
+                   och databasmotorer, samplanerat med Change-grupp och 
+                   systemförvaltningar.
+
+		   Ofta varit med i olika team för att lösa problem eller för
+		   att ta fram nya lösningar.
+
+
+                   TEKNISK SUPPORTTEKNIKER
+		   IT-assistans, 2017 (provanställning)
+                   
 
 .,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
 
-  UTBILDNING       Jag gick i ...
+  UTBILDNING       Jag gick i gymnasiet på École Européene i Bryssel, och tog
+                   mest kurser med naturvetenskaplig inriktning.
+
+                   Utöver det har jag två gånger påbörjat men inte avslutat
+                   studier vid KTH. Första gången var 2002 i civilingenjörs-
+                   programet för elektroteknik. Andra gången 2006 i högskole-
+                   ingenjörsprogrammet för Datornätverk och säkerhet.
 
 .,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
 
-  ÖVRIG            
-  RELEVANT         
-  ERFARENHET       
-                   Körkort med B-behörighet.
-                   Körkort med D-behörighet.
-		   Yrkeskompetensbevis (YKB)
-		   Digitalt förarkort.
+  UTBILDNING       Jag gick i gymnasiet i Tyresö, samhällsvetenskaplig
+                   inriktning.
+
+                   Efter avslutad gymnasieexamen studerade jag på YH Jensen
+		   Education - databasdesign och administration.
+		   Aug 2008 - jan 2010.
+
+		   Hösten 2016 - våren 2018 - Lernia YH för C# utvecklare.
+
 
 .,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
 
@@ -92,68 +191,10 @@
 .,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
 
   REFERENSER       Lämnas på begäran.
-
+                                                                  
 .,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
-
-		<div class="container">
-			<span>Start &gt; Fordon &gt; Fordonslista</span>
-		</div>
-	
-		<div class="container">
-			<div class="row">
-				<h1>Fordon</h1>
-			</div>
-
-			<div class="row">
-				<div class="row-md-12">
-					<div class="table-responsive-sm">
-						<table class="table table-lg">
-							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Reg.nr</th>
-									<th scope="col">Märke</th>
-									<th scope="col">Modell</th>
-									<th scope="col">Färg</th>
-									<th scope="col">Köpt</th>
-									<th scope="col">Såld</th>
-								</tr>
-							</thead>
-							<tbody>
-        						<%
-							if(vehicles.length!=0){
-								var i=1;
-								vehicles.forEach(function(data){
-							%>
-								<tr>
-									<td scope="row"><%=i %></td>
-									<td><%=data.reg_no %></td>
-									<td><%=data.make %></td>
-									<td><%=data.model %></td>
-									<td><%=data.color %></td>
-									<td><%=data.date_purchased %></td>
-									<td><%=data.date_sold %></td>
-	        						</tr>
-							<%
-								i++;
-							})
-							%>
-	        					<%
-							} else{
-							%>
-								<tr>
-									<td scope="row">No data found</td>
-								</tr>
-							<% } %>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<%- include('partials/footer') %>
-
-	</body>
+<image imag ima ima im m mi ami gami egami>
+.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,.,-'^'-,
+</pre>
+</body>
 </html>
-
