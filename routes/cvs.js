@@ -3,10 +3,15 @@ var db = require('../mydb')
 var router = express.Router();
 
 
-function renderCvsPage(req, res) {
+function markusCV(req, res) {
 	res.render('markus-cv', {title: 'Markus Netz - CV'})
 }
 
-router.get('/', renderCvsPage);
+function ulrikaCV(req, res) {
+	res.render('ulrika-cv', {title: 'Ulrika Netz - CV'})
+}
+
+router.get('/markus', markusCV);
+router.get('/ulrika', ulrikaCV);
 
 module.exports = router;
