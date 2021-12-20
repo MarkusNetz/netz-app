@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../mydb');
+const db = require('../persistence');
 
 
 /* GET barks listing. */

@@ -1,6 +1,6 @@
-var express = require('express');
-var db = require('../mydb')
-var router = express.Router();
+const express = require('express');
+const db = require('../persistence')
+const router = express.Router();
 
 
 function getVehicles(req,res,next) {
